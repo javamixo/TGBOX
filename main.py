@@ -1,12 +1,10 @@
 # main.py
 
 import logging
+import os
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 from categories import CHANNELS
-
-# Your Telegram bot token here
-TOKEN = "8090198604:AAGAeuekVnDwVvShlHmC302AVvjlqwOVXFU"
 
 # Set up logging
 logging.basicConfig(
@@ -14,6 +12,8 @@ logging.basicConfig(
     level=logging.INFO
 )
 logger = logging.getLogger(__name__)
+
+TOKEN = os.environ.get("BOT_TOKEN")
 
 # /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
